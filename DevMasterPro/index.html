@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevMaster Pro | Formação Full-Stack em 12 semanas com mentoria ao vivo</title>
+  <meta name="description" content="Turma fechada de formação intensiva Full-Stack em 12 semanas, com mentoria ao vivo. Garanta sua vaga.">
+  <style>
+    :root{
+      --fundo:#050811;
+      --card:#0f172a;
+      --violeta:#8b5cf6;
+      --amarelo:#fbbf24;
+      --borda:#1e293b;
+      --texto:#e8ecf5;
+      --suave:#9aa6bd;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--fundo);color:var(--texto);line-height:1.6}
+    a{color:inherit}
+    :focus-visible{outline:3px solid var(--amarelo);outline-offset:3px}
+    .container{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+    section{padding:4rem 0}
+    h1{font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.1}
+    h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:2rem}
+    h3{margin-bottom:.4rem}
+    p{color:var(--suave)}
+    .card{background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:1.5rem}
+
+    /* Botões: amarelo = ação principal */
+    .btn{display:inline-block;padding:.85rem 1.5rem;background:var(--amarelo);color:#1a1300;font-weight:700;text-decoration:none;border:0;border-radius:8px;cursor:pointer;font:inherit;font-weight:700}
+    .btn:hover{filter:brightness(1.08)}
+    .btn-outline{background:transparent;color:var(--amarelo);border:2px solid var(--amarelo)}
+
+    /* Topo */
+    .topo nav{display:flex;justify-content:space-between;align-items:center;padding-block:1rem}
+    .logo{font-weight:800;font-size:1.4rem;text-decoration:none}
+    .logo span{color:var(--violeta)}
+
+    /* COMPONENTE: hero-form */
+    .hero-form{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding-top:3rem}
+    .hero-form .lead{font-size:1.2rem;margin:1.2rem 0;max-width:52ch}
+    .hero-form small{color:var(--suave)}
+    .hero-form form{background:var(--card);border:1px solid var(--violeta);border-radius:16px;padding:1.6rem;display:grid;gap:1rem}
+    .hero-form form h3{font-size:1.25rem}
+    label{display:grid;gap:.35rem;font-size:.95rem;font-weight:600}
+    input{font:inherit;padding:.75rem .85rem;border:1.5px solid var(--borda);border-radius:8px;background:var(--fundo);color:var(--texto)}
+    input:focus{outline:3px solid var(--violeta);border-color:var(--violeta)}
+    form .btn{width:100%}
+
+    /* COMPONENTE: estatisticas */
+    .estatisticas{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;text-align:center}
+    .estatisticas strong{display:block;font-size:2.4rem;color:var(--violeta)}
+
+    /* COMPONENTE: timeline */
+    .timeline{list-style:none;border-left:3px solid var(--violeta);padding-left:1.8rem;display:grid;gap:1.6rem;margin-left:.5rem}
+    .timeline li{position:relative}
+    .timeline li::before{content:"";position:absolute;left:calc(-1.8rem - 9px);top:.45rem;width:15px;height:15px;border-radius:50%;background:var(--amarelo)}
+    .timeline .semanas{color:var(--amarelo);font-weight:700;font-size:.95rem}
+
+    /* COMPONENTE: precos */
+    .precos{display:grid;grid-template-columns:minmax(0,440px);justify-content:center}
+    .plano{display:grid;gap:1rem;align-content:start}
+    .plano.destaque{border-color:var(--amarelo)}
+    .valor{font-size:2.2rem;font-weight:800;color:var(--texto)}
+    .valor small{font-size:.95rem;color:var(--suave);font-weight:400}
+    .plano ul{list-style:none;display:grid;gap:.4rem;color:var(--suave)}
+    .vagas{text-align:center;margin-top:1.5rem;color:var(--amarelo);font-weight:600}
+
+    /* COMPONENTE: faq */
+    .faq{max-width:760px}
+    .faq-item{border-bottom:1px solid var(--borda)}
+    .faq-pergunta{width:100%;display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;background:none;border:0;color:var(--texto);font:inherit;font-weight:600;text-align:left;cursor:pointer}
+    .faq-pergunta::after{content:"+";font-size:1.5rem;line-height:1;color:var(--amarelo)}
+    .faq-pergunta[aria-expanded="true"]::after{content:"\2212"}
+    .faq-resposta{padding-bottom:1rem}
+    .faq-resposta[hidden]{display:none}
+
+    /* COMPONENTE: footer-simples */
+    .footer-simples{border-top:1px solid var(--borda);padding:2rem 0;margin-top:2rem;text-align:center;font-size:.9rem}
+
+    @media(max-width:800px){
+      .hero-form,.precos{grid-template-columns:1fr}
+      .estatisticas{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+
+  <!-- TOPO -->
+  <header class="topo">
+    <nav class="container">
+      <a href="#" class="logo">Dev<span>Master</span> Pro</a>
+      <a href="#vaga" class="btn">Garantir vaga</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- COMPONENTE: hero-form (promessa + captura de lead) -->
+    <section class="container hero-form" id="vaga">
+      <div>
+        <h1>De iniciante a dev Full-Stack em 12 semanas</h1>
+        <p class="lead">Turma fechada com mentoria ao vivo, projetos reais e acompanhamento até o seu primeiro portfólio profissional.</p>
+        <small>Vagas limitadas. Entre na lista de espera e seja avisado quando a turma abrir.</small>
+      </div>
+      <form action="#" method="post">
+        <h3>Entre na lista de espera</h3>
+        <label>Nome <input type="text" name="nome" autocomplete="name" required></label>
+        <label>E-mail <input type="email" name="email" autocomplete="email" required></label>
+        <label>WhatsApp <input type="tel" name="whatsapp" autocomplete="tel" placeholder="(31) 90000-0000" required></label>
+        <button type="submit" class="btn">Entrar na lista de espera</button>
+      </form>
+    </section>
+
+    <!-- COMPONENTE: estatisticas (dados de exemplo: troque pelos reais) -->
+    <section class="container">
+      <div class="estatisticas">
+        <div class="card"><strong>+850</strong><p>formados</p></div>
+        <div class="card"><strong>89%</strong><p>de empregabilidade</p></div>
+        <div class="card"><strong>120h</strong><p>de código</p></div>
+      </div>
+    </section>
+
+    <!-- COMPONENTE: timeline (jornada das 12 semanas) -->
+    <section class="container" id="programa">
+      <h2>Sua evolução em 3 meses</h2>
+      <ol class="timeline">
+        <li>
+          <span class="semanas">Mês 1</span>
+          <h3>Você aprende a base</h3>
+          <p>HTML, CSS, JavaScript e lógica. Ao final, você publica seu primeiro site.</p>
+        </li>
+        <li>
+          <span class="semanas">Mês 2</span>
+          <h3>Você constrói aplicações</h3>
+          <p>React, Node.js e banco de dados. Ao final, você tem um app completo funcionando.</p>
+        </li>
+        <li>
+          <span class="semanas">Mês 3</span>
+          <h3>Você vira profissional</h3>
+          <p>Projeto final, portfólio, GitHub e preparação para entrevistas.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- COMPONENTE: precos (valores de exemplo) -->
+    <section class="container" id="precos">
+      <h2>Investimento</h2>
+      <div class="precos">
+        <article class="card plano destaque">
+          <h3>Investimento na sua formação</h3>
+          <p class="valor">12x R$ 97,00<small> ou R$ 997 à vista</small></p>
+          <ul>
+            <li>12 semanas de formação Full-Stack</li>
+            <li>Mentoria ao vivo toda semana</li>
+            <li>Projetos para o portfólio</li>
+            <li>Comunidade de alunos</li>
+          </ul>
+          <a href="#vaga" class="btn">Entrar na lista de espera</a>
+        </article>
+      </div>
+      <p class="vagas">Turma fechada com 40 vagas: restam apenas 12. Início em 02/02/2027.</p>
+    </section>
+
+    <!-- COMPONENTE: faq -->
+    <section class="container faq" id="faq">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq-item">
+        <button class="faq-pergunta" aria-expanded="false" aria-controls="r1">Preciso saber programar para entrar?</button>
+        <div class="faq-resposta" id="r1" hidden><p>Não. A formação começa do zero. Basta ter um computador com internet e vontade de aprender.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pergunta" aria-expanded="false" aria-controls="r2">Quanto tempo por semana preciso dedicar?</button>
+        <div class="faq-resposta" id="r2" hidden><p>Em média, 10 a 12 horas por semana, somando aulas, mentoria ao vivo e prática dos projetos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pergunta" aria-expanded="false" aria-controls="r3">As mentorias ao vivo ficam gravadas?</button>
+        <div class="faq-resposta" id="r3" hidden><p>Sim. Todos os encontros ficam gravados e disponíveis na plataforma por 12 meses.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pergunta" aria-expanded="false" aria-controls="r4">Existe garantia?</button>
+        <div class="faq-resposta" id="r4" hidden><p>Você tem 7 dias de garantia incondicional. Se não gostar, devolvemos o valor total.</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- COMPONENTE: footer-simples -->
+  <footer class="footer-simples">
+    <div class="container">
+      <p>© 2026 DevMaster Pro. <a href="#">Termos de uso</a> · <a href="#">Política de privacidade</a></p>
+    </div>
+  </footer>
+
+<script>
+  // FAQ: abre e fecha a resposta ao clicar na pergunta
+  document.querySelectorAll('.faq-pergunta').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var aberto = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!aberto));
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = aberto;
+    });
+  });
+</script>
+</body>
+</html>
